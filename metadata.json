@@ -1,0 +1,6 @@
+{
+  "name": "CardioPredict ANN - Cardiovascular Health Monitoring & Prediction",
+  "description": "An interactive, human-centered cardiovascular health monitoring and prediction application powered by an Artificial Neural Network (ANN) trained on the 70,000-record Kaggle cardiovascular disease dataset, featuring EDA analytics, live inference, performance evaluation, and viva defense guide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,382 @@
+{
+  "project_title": "Cardiovascular Health Monitoring and Prediction Using Artificial Neural Networks",
+  "dataset": {
+    "file": "cardio_train.csv",
+    "raw_records": 70000,
+    "clean_records": 68567,
+    "features": [
+      "age_years",
+      "gender",
+      "height",
+      "weight",
+      "ap_hi",
+      "ap_lo",
+      "bmi",
+      "cholesterol",
+      "gluc",
+      "smoke",
+      "alco",
+      "active"
+    ],
+    "train_records": 54853,
+    "test_records": 13714,
+    "removed_bp_anomalies": 1332,
+    "removed_phys_anomalies": 101,
+    "target_distribution": {
+      "negative_cardio_0": 34644,
+      "positive_cardio_1": 33923
+    }
+  },
+  "models": {
+    "ann": {
+      "name": "Artificial Neural Network (MLP)",
+      "architecture": "Input(12) -> Dense(64, ReLU) -> Dense(32, ReLU) -> Dense(1, Sigmoid)",
+      "optimizer": "Adam (lr=0.003, beta1=0.9, beta2=0.999)",
+      "loss_function": "Binary Cross-Entropy",
+      "epochs": 6,
+      "batch_size": 256,
+      "metrics": {
+        "accuracy": 0.732,
+        "precision": 0.7597,
+        "recall": 0.6637,
+        "f1_score": 0.7085,
+        "roc_auc": 0.795,
+        "confusion_matrix": {
+          "true_positive": 4467,
+          "true_negative": 5571,
+          "false_positive": 1413,
+          "false_negative": 2263
+        },
+        "roc_curve": [
+          {
+            "fpr": 1.0,
+            "tpr": 1.0,
+            "threshold": 0.0
+          },
+          {
+            "fpr": 0.9991,
+            "tpr": 1.0,
+            "threshold": 0.04
+          },
+          {
+            "fpr": 0.9784,
+            "tpr": 0.9988,
+            "threshold": 0.08
+          },
+          {
+            "fpr": 0.9204,
+            "tpr": 0.9917,
+            "threshold": 0.12
+          },
+          {
+            "fpr": 0.8336,
+            "tpr": 0.978,
+            "threshold": 0.16
+          },
+          {
+            "fpr": 0.7214,
+            "tpr": 0.9529,
+            "threshold": 0.2
+          },
+          {
+            "fpr": 0.6224,
+            "tpr": 0.9163,
+            "threshold": 0.24
+          },
+          {
+            "fpr": 0.5235,
+            "tpr": 0.8737,
+            "threshold": 0.28
+          },
+          {
+            "fpr": 0.4381,
+            "tpr": 0.8346,
+            "threshold": 0.32
+          },
+          {
+            "fpr": 0.366,
+            "tpr": 0.7951,
+            "threshold": 0.36
+          },
+          {
+            "fpr": 0.3056,
+            "tpr": 0.7596,
+            "threshold": 0.4
+          },
+          {
+            "fpr": 0.2599,
+            "tpr": 0.7212,
+            "threshold": 0.44
+          },
+          {
+            "fpr": 0.2216,
+            "tpr": 0.6844,
+            "threshold": 0.48
+          },
+          {
+            "fpr": 0.1877,
+            "tpr": 0.6477,
+            "threshold": 0.52
+          },
+          {
+            "fpr": 0.1647,
+            "tpr": 0.6123,
+            "threshold": 0.56
+          },
+          {
+            "fpr": 0.1393,
+            "tpr": 0.5746,
+            "threshold": 0.6
+          },
+          {
+            "fpr": 0.1227,
+            "tpr": 0.5425,
+            "threshold": 0.64
+          },
+          {
+            "fpr": 0.1081,
+            "tpr": 0.5146,
+            "threshold": 0.68
+          },
+          {
+            "fpr": 0.0956,
+            "tpr": 0.4771,
+            "threshold": 0.72
+          },
+          {
+            "fpr": 0.0799,
+            "tpr": 0.4193,
+            "threshold": 0.76
+          },
+          {
+            "fpr": 0.0578,
+            "tpr": 0.3251,
+            "threshold": 0.8
+          },
+          {
+            "fpr": 0.0311,
+            "tpr": 0.1945,
+            "threshold": 0.84
+          },
+          {
+            "fpr": 0.0113,
+            "tpr": 0.0698,
+            "threshold": 0.88
+          },
+          {
+            "fpr": 0.0019,
+            "tpr": 0.0135,
+            "threshold": 0.92
+          },
+          {
+            "fpr": 0.0,
+            "tpr": 0.0004,
+            "threshold": 0.96
+          },
+          {
+            "fpr": 0.0,
+            "tpr": 0.0,
+            "threshold": 1.0
+          }
+        ]
+      },
+      "history": {
+        "epoch": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "loss": [
+          0.5674,
+          0.5479,
+          0.5452,
+          0.5431,
+          0.5415,
+          0.541
+        ],
+        "val_loss": [
+          0.5495,
+          0.5476,
+          0.5426,
+          0.544,
+          0.5423,
+          0.5462
+        ],
+        "accuracy": [
+          0.7155,
+          0.7293,
+          0.7336,
+          0.7327,
+          0.7346,
+          0.7337
+        ],
+        "val_accuracy": [
+          0.733,
+          0.728,
+          0.7327,
+          0.7317,
+          0.7333,
+          0.7347
+        ]
+      }
+    },
+    "baseline": {
+      "name": "Logistic Regression",
+      "description": "L2 Regularized Baseline Linear Classifier",
+      "metrics": {
+        "accuracy": 0.7266,
+        "precision": 0.7461,
+        "recall": 0.6715,
+        "f1_score": 0.7068,
+        "roc_auc": 0.79,
+        "confusion_matrix": {
+          "true_positive": 4519,
+          "true_negative": 5446,
+          "false_positive": 1538,
+          "false_negative": 2211
+        },
+        "roc_curve": [
+          {
+            "fpr": 1.0,
+            "tpr": 1.0,
+            "threshold": 0.0
+          },
+          {
+            "fpr": 0.996,
+            "tpr": 0.9999,
+            "threshold": 0.04
+          },
+          {
+            "fpr": 0.9679,
+            "tpr": 0.9975,
+            "threshold": 0.08
+          },
+          {
+            "fpr": 0.9301,
+            "tpr": 0.9938,
+            "threshold": 0.12
+          },
+          {
+            "fpr": 0.8726,
+            "tpr": 0.9823,
+            "threshold": 0.16
+          },
+          {
+            "fpr": 0.8156,
+            "tpr": 0.9707,
+            "threshold": 0.2
+          },
+          {
+            "fpr": 0.7354,
+            "tpr": 0.9533,
+            "threshold": 0.24
+          },
+          {
+            "fpr": 0.6476,
+            "tpr": 0.9229,
+            "threshold": 0.28
+          },
+          {
+            "fpr": 0.5627,
+            "tpr": 0.8884,
+            "threshold": 0.32
+          },
+          {
+            "fpr": 0.4709,
+            "tpr": 0.8507,
+            "threshold": 0.36
+          },
+          {
+            "fpr": 0.3826,
+            "tpr": 0.803,
+            "threshold": 0.4
+          },
+          {
+            "fpr": 0.3023,
+            "tpr": 0.7516,
+            "threshold": 0.44
+          },
+          {
+            "fpr": 0.2423,
+            "tpr": 0.6954,
+            "threshold": 0.48
+          },
+          {
+            "fpr": 0.1992,
+            "tpr": 0.6443,
+            "threshold": 0.52
+          },
+          {
+            "fpr": 0.1635,
+            "tpr": 0.5984,
+            "threshold": 0.56
+          },
+          {
+            "fpr": 0.1377,
+            "tpr": 0.555,
+            "threshold": 0.6
+          },
+          {
+            "fpr": 0.1124,
+            "tpr": 0.5062,
+            "threshold": 0.64
+          },
+          {
+            "fpr": 0.0936,
+            "tpr": 0.4527,
+            "threshold": 0.68
+          },
+          {
+            "fpr": 0.0776,
+            "tpr": 0.3963,
+            "threshold": 0.72
+          },
+          {
+            "fpr": 0.0617,
+            "tpr": 0.3321,
+            "threshold": 0.76
+          },
+          {
+            "fpr": 0.0473,
+            "tpr": 0.2663,
+            "threshold": 0.8
+          },
+          {
+            "fpr": 0.0347,
+            "tpr": 0.2061,
+            "threshold": 0.84
+          },
+          {
+            "fpr": 0.0226,
+            "tpr": 0.1441,
+            "threshold": 0.88
+          },
+          {
+            "fpr": 0.0129,
+            "tpr": 0.0816,
+            "threshold": 0.92
+          },
+          {
+            "fpr": 0.0053,
+            "tpr": 0.0309,
+            "threshold": 0.96
+          },
+          {
+            "fpr": 0.0,
+            "tpr": 0.0,
+            "threshold": 1.0
+          }
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "accuracy_gain": 0.0054,
+    "f1_gain": 0.0017,
+    "auc_gain": 0.005
+  },
+  "training_time_seconds": 262.59
+}
